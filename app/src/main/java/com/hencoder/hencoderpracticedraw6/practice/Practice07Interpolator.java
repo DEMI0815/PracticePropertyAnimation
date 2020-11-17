@@ -82,6 +82,7 @@ public class Practice07Interpolator extends LinearLayout {
         animateBt.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                System.out.println("position: " + spinner.getSelectedItemPosition());
                 imageView.animate()
                         .translationX(Utils.dpToPixel(150))
                         .setDuration(600)

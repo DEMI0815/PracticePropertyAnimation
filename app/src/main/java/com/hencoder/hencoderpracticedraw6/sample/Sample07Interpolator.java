@@ -34,6 +34,7 @@ public class Sample07Interpolator extends LinearLayout {
 
     Interpolator[] interpolators = new Interpolator[13];
     Path interpolatorPath;
+    private int status = 0;
 
     public Sample07Interpolator(Context context) {
         super(context);
@@ -81,7 +82,7 @@ public class Sample07Interpolator extends LinearLayout {
                 imageView.animate()
                         .translationX(Utils.dpToPixel(150))
                         .setDuration(600)
-                        .setInterpolator(interpolators[spinner.getSelectedItemPosition()])
+                        .setInterpolator(interpolators[status])
                         .withEndAction(new Runnable() {
                             @Override
                             public void run() {
@@ -93,6 +94,10 @@ public class Sample07Interpolator extends LinearLayout {
                                 }, 500);
                             }
                         });
+                status++;
+                if (status == 13) {
+                    status = 0;
+                }
             }
         });
     }
