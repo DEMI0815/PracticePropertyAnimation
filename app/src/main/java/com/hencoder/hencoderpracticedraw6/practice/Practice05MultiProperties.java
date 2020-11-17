@@ -13,6 +13,7 @@ import com.hencoder.hencoderpracticedraw6.R;
 public class Practice05MultiProperties extends ConstraintLayout {
     Button animateBt;
     ImageView imageView;
+    private boolean status = true;
 
     public Practice05MultiProperties(Context context) {
         super(context);
@@ -39,6 +40,20 @@ public class Practice05MultiProperties extends ConstraintLayout {
             @Override
             public void onClick(View v) {
                 // TODO 在这里处理点击事件，同时对多个属性做动画
+                if (status) {
+                    imageView.animate().alpha(1);
+                    imageView.animate().translationX(300);
+                    imageView.animate().rotation(360);
+                    imageView.animate().scaleX(1);
+                    imageView.animate().scaleY(1);
+                } else {
+                    imageView.animate().alpha(0);
+                    imageView.animate().translationX(0);
+                    imageView.animate().rotation(0);
+                    imageView.animate().scaleX(0);
+                    imageView.animate().scaleY(0);
+                }
+                status = !status;
             }
         });
     }
